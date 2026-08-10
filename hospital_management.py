@@ -71,10 +71,12 @@ class windows1:
                                    command=self.login_system)
         self.button_login.grid(row=0, column=0, padx=10, pady=10)
 
-        self.button_Reset = Button(self.LoginFrame2, text="Reset", width=20, font=("arial", 18, "bold"))
+        self.button_Reset = Button(self.LoginFrame2, text="Reset", width=20, font=("arial", 18, "bold"),
+                                   command = self.reset_btn)
         self.button_Reset.grid(row=0, column=3, padx=10, pady=10)
 
-        self.button_Exit = Button(self.LoginFrame2, text="Exit", width=20, font=("arial", 18, "bold"))
+        self.button_Exit = Button(self.LoginFrame2, text="Exit", width=20, font=("arial", 18, "bold"),
+                                  command = self.Exit_btn)
         self.button_Exit.grid(row=0, column=6, padx=10, pady=10)
 
     def login_system(self):
@@ -98,6 +100,23 @@ class windows1:
             self.Username.set("")
             self.Password.set("")
             self.textUsername.focus()
+
+    def reset_btn(self):
+        self.button_reg.config(state = DISABLED)
+        self.button_Hosp.config(state = DISABLED)
+        self.button_Dr_appt.config(state = DISABLED)
+        self.button_med_stock.config(state = DISABLED)
+        # because when we will reset still we haven't given correct user id and password
+        self.Username.set("")
+        self.Password.set("")
+        self.textUsername.focus()
+
+    def Exit_btn(self):
+        self.Exit_btn = tkinter.messagebox.askyesno ("Pharmacy Management System", "Are you sure you want to exit?")
+        if self.Exit_btn > 0:
+            # we will close that master screen
+            self.master.destroy()
+            return
 
     def Registration_window(self):
         self.newWindow = Toplevel(self.master)
