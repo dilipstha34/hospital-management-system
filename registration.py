@@ -13,6 +13,7 @@ class Registration:
         self.root = root
         self.root.title("Patient Registration System")
         self.root.geometry("1350x750+0+0")
+        self.root.minsize(1100, 650)
         self.root.configure(background = "black")
 
         # Taking live date time
@@ -44,116 +45,129 @@ class Registration:
 
         # member frame
         Manage_Frame = Frame(self.root, bd = 4, relief = RIDGE, bg = "#001a66")
-        Manage_Frame.place(x = 20, y = 100, width=450, height = 638)
+        Manage_Frame.place(relx = 0.015, rely = 0.135, relwidth = 0.345, relheight = 0.84)
+
+        Manage_Frame.grid_columnconfigure(0, weight = 1)
+        Manage_Frame.grid_columnconfigure(1, weight = 1)
 
         ######### text, label, comboboxes in manage frame #########
         Cus_title = Label (Manage_Frame, text = "Customer Details", font = ("arail", 20, "bold"), bg = "#001a66",fg = "white")
-        Cus_title.grid(row =0, columnspan = 2, pady = 5)
+        Cus_title.grid(row =0, columnspan = 2, pady = 8)
 
         member_datelbl = Label(Manage_Frame, text = "Date", font = ("arial", 15, "bold"), bg = "#001a66", fg= "white")
-        member_datelbl.grid(row = 1, column = 0, pady = 5, padx = 10, sticky = "w")
+        member_datelbl.grid(row = 1, column = 0, pady = 6, padx = 12, sticky = "w")
 
-        member_datetxt = Entry(Manage_Frame, font=("arial", 15, "bold"), textvariable = Date_of_Registration)
-        member_datetxt.grid(row = 1, column = 1 , pady = 5, padx = 10, sticky = "w")
+        member_datetxt = Entry(Manage_Frame, font=("arial", 15, "bold"), textvariable = Date_of_Registration, width = 20)
+        member_datetxt.grid(row = 1, column = 1 , pady = 6, padx = 12, sticky = "ew")
 
         member_reflbl = Label (Manage_Frame, text = "Reference ID", font = ("arial", 15, "bold"), bg = "#001a66", fg= "white")
-        member_reflbl.grid(row = 2, column = 0, pady = 5, padx = 10, sticky = "w")
+        member_reflbl.grid(row = 2, column = 0, pady = 6, padx = 12, sticky = "w")
 
-        member_reftxt = Entry(Manage_Frame, font=("arial", 15, "bold"), state=DISABLED, textvariable=Ref)
-        member_reftxt.grid(row = 2, column = 1, pady = 5, padx = 10, sticky = "w")
+        member_reftxt = Entry(Manage_Frame, font=("arial", 15, "bold"), state=DISABLED, textvariable=Ref, width = 20)
+        member_reftxt.grid(row = 2, column = 1, pady = 6, padx = 12, sticky = "ew")
 
         member_fnamelbl = Label(Manage_Frame, text = "First Name", font = ("arial", 15, "bold"), bg = "#001a66", fg= "white")
-        member_fnamelbl.grid(row = 3, column = 0, pady = 5, padx = 10, sticky = "w")
+        member_fnamelbl.grid(row = 3, column = 0, pady = 6, padx = 12, sticky = "w")
 
-        member_fnametxt = Entry(Manage_Frame, font=("arial", 15, "bold"), textvariable = Firstname)
-        member_fnametxt.grid(row = 3, column = 1 , pady = 5, padx = 10, sticky = "w")
+        member_fnametxt = Entry(Manage_Frame, font=("arial", 15, "bold"), textvariable = Firstname, width = 20)
+        member_fnametxt.grid(row = 3, column = 1 , pady = 6, padx = 12, sticky = "ew")
 
         member_lnamelbl = Label(Manage_Frame, text = "Last Name", font = ("arial", 15, "bold"), bg = "#001a66", fg= "white")
-        member_lnamelbl.grid(row = 4, column = 0, pady = 5, padx = 10, sticky = "w")
+        member_lnamelbl.grid(row = 4, column = 0, pady = 6, padx = 12, sticky = "w")
 
-        member_lnametxt = Entry(Manage_Frame, font=("arial", 15, "bold"), textvariable = Lastname)
-        member_lnametxt.grid(row = 4, column = 1 , pady = 5, padx = 10, sticky = "w")
+        member_lnametxt = Entry(Manage_Frame, font=("arial", 15, "bold"), textvariable = Lastname, width = 20)
+        member_lnametxt.grid(row = 4, column = 1 , pady = 6, padx = 12, sticky = "ew")
 
         member_mobilelbl = Label(Manage_Frame, text = "Mobile No.", font = ("arial", 15, "bold"), bg = "#001a66", fg= "white")
-        member_mobilelbl.grid(row = 5, column = 0, pady = 5, padx = 10, sticky = "w")
+        member_mobilelbl.grid(row = 5, column = 0, pady = 6, padx = 12, sticky = "w")
 
-        member_mobiletxt = Entry(Manage_Frame, font=("arial", 15, "bold"), textvariable = Mobile_no)
-        member_mobiletxt.grid(row = 5 , column = 1 , pady = 5, padx = 10, sticky = "w")
+        member_mobiletxt = Entry(Manage_Frame, font=("arial", 15, "bold"), textvariable = Mobile_no, width = 20)
+        member_mobiletxt.grid(row = 5 , column = 1 , pady = 6, padx = 12, sticky = "ew")
 
         member_addresslbl = Label(Manage_Frame, text = "Address", font = ("arial", 15, "bold"), bg = "#001a66", fg= "white")
-        member_addresslbl.grid(row = 6, column = 0, pady = 5, padx = 10, sticky = "w")
+        member_addresslbl.grid(row = 6, column = 0, pady = 6, padx = 12, sticky = "w")
 
-        member_addresstxt = Entry(Manage_Frame, font=("arial", 15, "bold"), textvariable = Address)
-        member_addresstxt.grid(row = 6, column = 1 , pady = 5, padx = 10, sticky = "w")
+        member_addresstxt = Entry(Manage_Frame, font=("arial", 15, "bold"), textvariable = Address, width = 20)
+        member_addresstxt.grid(row = 6, column = 1 , pady = 6, padx = 12, sticky = "ew")
 
         member_pincodelbl = Label(Manage_Frame, text = "Pin Code", font = ("arial", 15, "bold"), bg = "#001a66", fg= "white")
-        member_pincodelbl.grid(row = 7, column = 0, pady = 5, padx = 10, sticky = "w")
+        member_pincodelbl.grid(row = 7, column = 0, pady = 6, padx = 12, sticky = "w")
 
-        member_pincodetxt = Entry(Manage_Frame, font=("arial", 15, "bold"), textvariable = Pincode)
-        member_pincodetxt.grid(row = 7, column = 1 , pady = 5, padx = 10, sticky = "w")
+        member_pincodetxt = Entry(Manage_Frame, font=("arial", 15, "bold"), textvariable = Pincode, width = 20)
+        member_pincodetxt.grid(row = 7, column = 1 , pady = 6, padx = 12, sticky = "ew")
 
         member_genderlbl = Label(Manage_Frame, text = "Gender", font = ("arial", 15, "bold"), bg = "#001a66", fg= "white")
-        member_genderlbl.grid(row = 8, column = 0, pady = 5, padx = 10, sticky = "w")
+        member_genderlbl.grid(row = 8, column = 0, pady = 6, padx = 12, sticky = "w")
 
         member_gendercmb = ttk.Combobox(Manage_Frame, text = var4, state = "readonly", font = ("arail", 15, "bold"), width = 19)
         member_gendercmb['values'] = ("", "Male", "Female", "Other")
-        member_gendercmb.current(0) # when nothing it will be set as empty which we have given at index 6
-        member_gendercmb.grid(row = 8, column = 1, pady = 5, padx = 10, sticky = "w")
+        member_gendercmb.current(0)
+        member_gendercmb.grid(row = 8, column = 1, pady = 6, padx = 12, sticky = "ew")
 
         member_id_prooflbl = Label(Manage_Frame, text = "ID Proof", font = ("arial", 15, "bold"), bg = "#001a66", fg = "white")
-        member_id_prooflbl.grid(row = 9, column=0, pady = 5, padx = 10, sticky = "w")
+        member_id_prooflbl.grid(row = 9, column=0, pady = 6, padx = 12, sticky = "w")
 
         member_id_proofcmb = ttk.Combobox(Manage_Frame, text = "ID Proof", state = "readonly", font = ("arail", 15, "bold"), width= 19)
         member_id_proofcmb['values'] = ("","Citizen Card", "Passport", "Driving License", "Pan Card", "Student ID")
-        member_id_proofcmb.current(0) # when nothing it will be set as empty which we have given at index 0
-        member_id_proofcmb.grid(row = 9, column = 1, pady = 5, padx = 10, sticky = "w")
+        member_id_proofcmb.current(0)
+        member_id_proofcmb.grid(row = 9, column = 1, pady = 6, padx = 12, sticky = "ew")
 
         member_memtypelbl = Label(Manage_Frame, text = "Member Type", font = ("arial", 15, "bold"), bg= "#001a66", fg= "white")
-        member_memtypelbl.grid(row = 10, column=0 ,pady = 5 , padx = 10, sticky = "w")
+        member_memtypelbl.grid(row = 10, column=0 ,pady = 6 , padx = 12, sticky = "w")
 
         member_memtypecmb = ttk.Combobox(Manage_Frame, text = var2, state = "readonly", font = ("arail", 15, "bold"), width= 19)
         member_memtypecmb ['values'] = ("", "Male", "Female", "Other")
-        member_memtypecmb.current(0) # when nothing it will be set as empty which we have given at index 8
-        member_memtypecmb.grid(row = 10, column = 1, pady = 5 ,padx = 10, sticky = "w")
+        member_memtypecmb.current(0)
+        member_memtypecmb.grid(row = 10, column = 1, pady = 6 ,padx = 12, sticky = "ew")
 
         member_paymentwithlbl = Label(Manage_Frame, text = "Payment", font = ("arial", 15, "bold"), bg= "#001a66", fg= "white")
-        member_paymentwithlbl.grid(row = 11, column=0 ,pady = 5 , padx = 10, sticky = "w")
+        member_paymentwithlbl.grid(row = 11, column=0 ,pady = 6 , padx = 12, sticky = "w")
 
         member_paymentwithcmb = ttk.Combobox(Manage_Frame, text = var1, state = "readonly", font = ("arail", 15, "bold"), width= 19)
         member_paymentwithcmb['values'] = ("", "Cash", "Debit Card", "Esewa", "Khalti")
-        member_paymentwithcmb.current(0) # when nothing it will be set as empty which we have given at index 0
-        member_paymentwithcmb.grid(row = 11, column = 1, pady = 5 ,padx = 10, sticky = "w")
+        member_paymentwithcmb.current(0)
+        member_paymentwithcmb.grid(row = 11, column = 1, pady = 6 ,padx = 12, sticky = "ew")
 
         member_membership = Checkbutton (Manage_Frame, text = "Membership Fees", variable = var5, onvalue = 1,
                                           offvalue = 0, font = ("arial", 15, "bold"), bg = "#001a66", fg = "white")
-        member_membership.grid(row = 12, column = 0, sticky = "w")
+        member_membership.grid(row = 12, column = 0, pady = 6, padx = 12, sticky = "w")
+
         member_membershiptxt = Entry(Manage_Frame, font = ("arail", 15, "bold"), state = DISABLED, justify = RIGHT, 
-                                     textvariable = Membership)
-        member_membershiptxt.grid(row =12, column = 1, pady = 5, padx = 10, sticky = "w") 
+                                     textvariable = Membership, width = 20)
+        member_membershiptxt.grid(row =12, column = 1, pady = 6, padx = 12, sticky = "ew") 
+
 
         ########Detail Frame ##
-        detail_frame = Frame (self.root, relief = RIDGE, bg = "#001a66")
-        detail_frame.place(x=500, y = 100, width = 820, height = 630)
+        detail_frame = Frame (self.root, relief = RIDGE, bd = 4, bg = "#001a66")
+        detail_frame.place(relx = 0.37, rely = 0.135, relwidth = 0.615, relheight = 0.84)
 
-        detail_label = Label(detail_frame, font = ("arail", 11, "bold"), pady = 18, padx=2, width = 95,
-        text = "Date\t Ref Id\t Firstname   Lastname     Mobile No     Address     PincodeGender     Membership")
+        detail_frame.grid_rowconfigure(1, weight = 1)
+        detail_frame.grid_columnconfigure(0, weight = 1)
+        detail_frame.grid_columnconfigure(1, weight = 1)
+        detail_frame.grid_columnconfigure(2, weight = 1)
+        detail_frame.grid_columnconfigure(3, weight = 1)
+
+        detail_label = Label(detail_frame, font = ("arail", 11, "bold"), pady = 10, padx=2, width = 95,
+        text = "Date\t Ref Id\t Firstname   Lastname     Mobile No     Address     PincodeGender     Membership",
+        bg = "#001a66", fg = "white")
 
         detail_label.grid(row=0, column=0, columnspan=4)
-        detail_labeltxt = Text(detail_frame, width= 123, height = 34, font = ("arial", 12))
-        detail_labeltxt.grid(row = 1, column = 0, columnspan = 4)
+
+        detail_labeltxt = Text(detail_frame, width= 92, height = 23, font = ("arial", 12))
+        detail_labeltxt.grid(row = 1, column = 0, columnspan = 4, padx = 10, pady = 5, sticky = "nsew")
 
         ########## we will add button in detail frame ################3
-        receiptbtn = Button(detail_frame, padx = 15, bg="#ff9966", width = 20, bd = 5 ,
+        receiptbtn = Button(detail_frame, padx = 10, bg="#ff9966", width = 18, bd = 5 ,
                              font =("arail", 12, "bold"), text = "Receipt")
-        receiptbtn.grid ( row = 2 , column= 0)
+        receiptbtn.grid ( row = 2 , column= 0, padx = 8, pady = 8)
 
-        resetbtn = Button(detail_frame, padx = 15, bd = 5 , 
-                          font =("arail", 12, "bold"), bg="#ff9966", width = 20, text = "Reset")
-        resetbtn.grid(row = 2, column = 1)
+        resetbtn = Button(detail_frame, padx = 10, bd = 5 , 
+                          font =("arail", 12, "bold"), bg="#ff9966", width = 18, text = "Reset")
+        resetbtn.grid(row = 2, column = 1, padx = 8, pady = 8)
         
-        exitbtn = Button(detail_frame, padx = 15, bg="#ff9966", width = 20, text = "Exit", bd = 5, 
+        exitbtn = Button(detail_frame, padx = 10, bg="#ff9966", width = 18, text = "Exit", bd = 5, 
                          font = ("arail", 12, "bold"))
-        exitbtn.grid(row = 2, column = 2)
+        exitbtn.grid(row = 2, column = 2, padx = 8, pady = 8)
             
 
 if __name__ == "__main__":
