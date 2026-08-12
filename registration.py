@@ -1,3 +1,4 @@
+from pydoc import text
 import random
 import time
 import datetime
@@ -99,9 +100,60 @@ class Registration:
         member_gendercmb.current(0) # when nothing it will be set as empty which we have given at index 6
         member_gendercmb.grid(row = 8, column = 1, pady = 5, padx = 10, sticky = "w")
 
+        member_id_prooflbl = Label(Manage_Frame, text = "ID Proof", font = ("arial", 15, "bold"), bg = "#001a66", fg = "white")
+        member_id_prooflbl.grid(row = 9, column=0, pady = 5, padx = 10, sticky = "w")
+
+        member_id_proofcmb = ttk.Combobox(Manage_Frame, text = "ID Proof", state = "readonly", font = ("arail", 15, "bold"), width= 19)
+        member_id_proofcmb['values'] = ("","Citizen Card", "Passport", "Driving License", "Pan Card", "Student ID")
+        member_id_proofcmb.current(0) # when nothing it will be set as empty which we have given at index 0
+        member_id_proofcmb.grid(row = 9, column = 1, pady = 5, padx = 10, sticky = "w")
+
+        member_memtypelbl = Label(Manage_Frame, text = "Member Type", font = ("arial", 15, "bold"), bg= "#001a66", fg= "white")
+        member_memtypelbl.grid(row = 10, column=0 ,pady = 5 , padx = 10, sticky = "w")
+
+        member_memtypecmb = ttk.Combobox(Manage_Frame, text = var2, state = "readonly", font = ("arail", 15, "bold"), width= 19)
+        member_memtypecmb ['values'] = ("", "Male", "Female", "Other")
+        member_memtypecmb.current(0) # when nothing it will be set as empty which we have given at index 8
+        member_memtypecmb.grid(row = 10, column = 1, pady = 5 ,padx = 10, sticky = "w")
+
+        member_paymentwithlbl = Label(Manage_Frame, text = "Payment", font = ("arial", 15, "bold"), bg= "#001a66", fg= "white")
+        member_paymentwithlbl.grid(row = 11, column=0 ,pady = 5 , padx = 10, sticky = "w")
+
+        member_paymentwithcmb = ttk.Combobox(Manage_Frame, text = var1, state = "readonly", font = ("arail", 15, "bold"), width= 19)
+        member_paymentwithcmb['values'] = ("", "Cash", "Debit Card", "Esewa", "Khalti")
+        member_paymentwithcmb.current(0) # when nothing it will be set as empty which we have given at index 0
+        member_paymentwithcmb.grid(row = 11, column = 1, pady = 5 ,padx = 10, sticky = "w")
+
+        member_membership = Checkbutton (Manage_Frame, text = "Membership Fees", variable = var5, onvalue = 1,
+                                          offvalue = 0, font = ("arial", 15, "bold"), bg = "#001a66", fg = "white")
+        member_membership.grid(row = 12, column = 0, sticky = "w")
+        member_membershiptxt = Entry(Manage_Frame, font = ("arail", 15, "bold"), state = DISABLED, justify = RIGHT, 
+                                     textvariable = Membership)
+        member_membershiptxt.grid(row =12, column = 1, pady = 5, padx = 10, sticky = "w") 
+
         ########Detail Frame ##
         detail_frame = Frame (self.root, relief = RIDGE, bg = "#001a66")
-        detail_frame.place(x=500, y = 100, width = 828, height = 630)
+        detail_frame.place(x=500, y = 100, width = 820, height = 630)
+
+        detail_label = Label(detail_frame, font = ("arail", 11, "bold"), pady = 18, padx=2, width = 95,
+        text = "Date\t Ref Id\t Firstname   Lastname     Mobile No     Address     PincodeGender     Membership")
+
+        detail_label.grid(row=0, column=0, columnspan=4)
+        detail_labeltxt = Text(detail_frame, width= 123, height = 34, font = ("arial", 12))
+        detail_labeltxt.grid(row = 1, column = 0, columnspan = 4)
+
+        ########## we will add button in detail frame ################3
+        receiptbtn = Button(detail_frame, padx = 15, bg="#ff9966", width = 20, bd = 5 ,
+                             font =("arail", 12, "bold"), text = "Receipt")
+        receiptbtn.grid ( row = 2 , column= 0)
+
+        resetbtn = Button(detail_frame, padx = 15, bd = 5 , 
+                          font =("arail", 12, "bold"), bg="#ff9966", width = 20, text = "Reset")
+        resetbtn.grid(row = 2, column = 1)
+        
+        exitbtn = Button(detail_frame, padx = 15, bg="#ff9966", width = 20, text = "Exit", bd = 5, 
+                         font = ("arail", 12, "bold"))
+        exitbtn.grid(row = 2, column = 2)
             
 
 if __name__ == "__main__":
