@@ -37,6 +37,43 @@ class Registration:
         Membership = StringVar()
         Membership.set("0") # when membeship checkbox is unclicked or reset has been done it will automatically set as 0
 
+        ############functions ###############
+        def exitbtt():
+            exitbtt = tkinter.messagebox.askyesno ("Member Registration Form", "Are you sure you want to exit ?")
+            if exitbtt > 0:
+                root.destroy()
+                return
+
+        def resetbtt():
+            Firstname.set("")
+            Ref.set("")
+            Mobile_no.set("")
+            Pincode.set("")
+            Address.set("")
+            Lastname.set("")
+            var1.set("")
+            var2.set("")
+            var3.set("")
+            var4.set("")
+            var5.set("")
+            Membership.set("0")
+            member_gendercmb.current(0)
+            member_id_proofcmb.current(0)
+            member_memtypecmb.current(0)
+            member_paymentwithcmb.current(0)
+            member_membershiptxt.config(state = DISABLED)
+
+        def reeesetbtt():
+            reeesetbtt = tkinter.messagebox.askokcancel("member Registration Form", "You want to add as new Recod")
+            if reeesetbtt:
+                resetbtt()
+                detail_labeltxt.delete("1.0", END)
+            return
+
+        def Reference_number():
+            ranumber = random.randint(1000, 9999)
+            randomRef = str(ranumber)
+            Ref.set(randomRef)
 
         # TITLE 
         title = Label(self.root, text = "Member Registration Form", font = ("monotype corsiva", 30, "bold"), bd = 5,
@@ -158,15 +195,15 @@ class Registration:
 
         ########## we will add button in detail frame ################3
         receiptbtn = Button(detail_frame, padx = 10, bg="#ff9966", width = 18, bd = 5 ,
-                             font =("arail", 12, "bold"), text = "Receipt")
+                             font =("arail", 12, "bold"), text = "Receipt", command = Reference_number)
         receiptbtn.grid ( row = 2 , column= 0, padx = 8, pady = 8)
 
         resetbtn = Button(detail_frame, padx = 10, bd = 5 , 
-                          font =("arail", 12, "bold"), bg="#ff9966", width = 18, text = "Reset")
+                          font =("arail", 12, "bold"), bg="#ff9966", width = 18, text = "Reset", command = reeesetbtt)
         resetbtn.grid(row = 2, column = 1, padx = 8, pady = 8)
         
         exitbtn = Button(detail_frame, padx = 10, bg="#ff9966", width = 18, text = "Exit", bd = 5, 
-                         font = ("arail", 12, "bold"))
+                         font = ("arail", 12, "bold"), command = exitbtt)
         exitbtn.grid(row = 2, column = 2, padx = 8, pady = 8)
             
 
