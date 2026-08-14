@@ -8,6 +8,8 @@ from tkinter import font
 import tkinter.messagebox
 from turtle import title
 
+# Registration class is for patient registration window
+
 class Registration:
     def __init__(self,root):
         self.root = root
@@ -44,6 +46,7 @@ class Registration:
                 root.destroy()
                 return
 
+        # reset button function
         def resetbtt():
             Firstname.set("")
             Ref.set("")
@@ -62,6 +65,8 @@ class Registration:
             member_memtypecmb.current(0)
             member_paymentwithcmb.current(0)
             member_membershiptxt.config(state = DISABLED)
+
+        # this function is for reset button which will ask user if he wants to add new record or not
 
         def reeesetbtt():
             reeesetbtt = tkinter.messagebox.askokcancel("member Registration Form", "You want to add as new Recod")
@@ -206,6 +211,7 @@ class Registration:
                          font = ("arail", 12, "bold"), command = exitbtt)
         exitbtn.grid(row = 2, column = 2, padx = 8, pady = 8)
             
+# main function to run the program 
 
 if __name__ == "__main__":
     root = Tk()
