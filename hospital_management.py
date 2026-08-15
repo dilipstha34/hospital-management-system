@@ -6,13 +6,13 @@ from tkinter import ttk
 from tkinter import font
 import tkinter.messagebox
 
-
+# main function is the entry point of the application which creates the main window and starts the main loop
 def main():
     root = Tk()
     app = windows1(root)
     root.mainloop()
 
-
+# windows1 class is the main window of the application which contains the login functionality and buttons to open other windows
 class windows1:
     def __init__(self, master):
         self.master = master
@@ -79,6 +79,8 @@ class windows1:
                                   command = self.Exit_btn)
         self.button_Exit.grid(row=0, column=6, padx=10, pady=10)
 
+    # login_system method checks the username and password entered by the user. If the credentials are correct, it enables the buttons to open other windows. If not, it shows an error message and disables the buttons.
+
     def login_system(self):
         user = self.Username.get()
         pswd = self.Password.get()
@@ -100,7 +102,7 @@ class windows1:
             self.Username.set("")
             self.Password.set("")
             self.textUsername.focus()
-
+    # reset_btn method resets the username and password fields and disables the buttons to open other windows.
     def reset_btn(self):
         self.button_reg.config(state = DISABLED)
         self.button_Hosp.config(state = DISABLED)
@@ -111,6 +113,7 @@ class windows1:
         self.Password.set("")
         self.textUsername.focus()
 
+    # Exit_btn method asks the user for confirmation before exiting the application. If the user confirms, it closes the main window and exits the application.
     def Exit_btn(self):
         self.Exit_btn = tkinter.messagebox.askyesno ("Pharmacy Management System", "Are you sure you want to exit?")
         if self.Exit_btn > 0:
@@ -118,6 +121,7 @@ class windows1:
             self.master.destroy()
             return
 
+    # Registration_window, Hospital_window, Dr_Appoint_window, and Medicine_window methods create new windows for patient registration, hospital management, doctor appointment, and medicine management respectively. Each method creates a new Toplevel window and initializes the corresponding class (windows2, windows3, windows4, or windows5) to set up the new window's layout and functionality.
     def Registration_window(self):
         self.newWindow = Toplevel(self.master)
         self.app = windows2(self.newWindow)
@@ -134,7 +138,7 @@ class windows1:
         self.newWindow = Toplevel(self.master)
         self.app = windows5(self.newWindow)
 
-
+# windows2, windows3, windows4, and windows5 classes define the layout and functionality of the patient registration, hospital management, doctor appointment, and medicine management windows respectively. Each class initializes a new window with a title, size, and a frame containing a title label.
 class windows2:
     def __init__(self, master):
         self.master = master
